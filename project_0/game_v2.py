@@ -1,17 +1,16 @@
+# Импортируем нелбходимую нам библиотеку
 import numpy as np
-"""Игра угадай число
-Компьютер сам загадывает и сам угадывает число
-"""
+
+## Игра угадай число, суть которой в самостоятельном загадывании и отгадывании числа компьютером
 
 def random_predict(number: int = 1) -> int:
-    """Рандомно угадываем число
+    """Функция случайного угадывания числа
 
     Args:
         number (int, optional): Загаданное число. Defaults to 1.
 
     Returns:
-        int: Число попыток
-    """
+        int: Число попыток"""
     count = 0
 
     predict_number = np.random.randint(1, 101)  # предполагаемое число
@@ -39,7 +38,7 @@ def score_game(random_predict) -> int:
         int: среднее количество попыток
     """
     count_ls = []
-    #np.random.seed(1)  # фиксируем сид для воспроизводимости
+    np.random.seed(1)  # фиксируем сид для воспроизводимости
     random_array = np.random.randint(1, 101, size=(1000))  # загадали список чисел
 
     for number in random_array:
