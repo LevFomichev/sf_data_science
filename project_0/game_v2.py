@@ -3,9 +3,6 @@ import numpy as np
 Компьютер сам загадывает и сам угадывает число
 """
 
-import numpy as np
-
-
 def random_predict(number: int = 1) -> int:
     """Рандомно угадываем число
 
@@ -17,10 +14,17 @@ def random_predict(number: int = 1) -> int:
     """
     count = 0
 
+    predict_number = np.random.randint(1, 101)  # предполагаемое число
+    
     while True:
         count += 1
-        predict_number = np.random.randint(1, 101)  # предполагаемое число
-        if number == predict_number:
+        if predict_number > number:
+            more_predict_number = predict_number
+            predict_number = np.random.randint(1, more_predict_number)
+        if predict_number < number:
+            less_predict_number = predict_number
+            predict_number = np.random.randint(less_predict_number, 101)
+        else:
             break  # выход из цикла если угадали
     return count
 
