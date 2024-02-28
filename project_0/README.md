@@ -37,7 +37,11 @@
 
 :arrow_up:[к оглавлению](https://github.com/LevFomichev/sf_data_science/blob/main/project_0/README.md#Оглавление)
 
+
 ### Краткая информация о данных
 Компьютер загадываем число - для этого используется функция random из библиотеки NumPy, которая будет 1000 раз генерировать случайное число от 1 до 100.
 
 :arrow_up:[к оглавлению](https://github.com/LevFomichev/sf_data_science/blob/main/project_0/README.md#Оглавление)
+
+
+### Этапы работы над данными
