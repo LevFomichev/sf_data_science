@@ -29,7 +29,7 @@ def game_core_v3(number: int = 1) -> int:
     return count 
 
 
-def score_game(game_core_v3) -> int:
+def score_game_v2(game_core_v3) -> int:
     """За какое количство попыток в среднем за 1000 подходов угадывает наш алгоритм
 
     Args:
