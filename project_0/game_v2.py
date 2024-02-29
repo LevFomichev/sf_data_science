@@ -1,3 +1,4 @@
+# Импортируем необходимую нам библиотеку
 import numpy as np
 
 def game_core_v3(number: int = 1) -> int:
@@ -12,9 +13,9 @@ def game_core_v3(number: int = 1) -> int:
     Returns:
         int: Число попыток
     """
-    count = 0
+    count = 0 # Число попыток
 
-    predict_number = np.random.randint(1, 101)  # предполагаемое число
+    predict_number = np.random.randint(1, 101) # Предполагаемое число
     
     while True:
         count += 1
@@ -25,7 +26,7 @@ def game_core_v3(number: int = 1) -> int:
             less_predict_number = predict_number
             predict_number = np.random.randint(less_predict_number, 101)
         else:
-            break  # выход из цикла если угадали
+            break  # Выход из цикла если угадали
     return count 
 
 
@@ -38,13 +39,17 @@ def score_game_v2(game_core_v3) -> int:
     Returns:
         int: среднее количество попыток
     """
-    count_ls = []
-    np.random.seed(1)  # фиксируем сид для воспроизводимости
-    random_array = np.random.randint(1, 101, size=(1000))  # загадали список чисел
+    count_ls = [] # Создаём список, состоящий из будущего количества попыток отгадок 
+    np.random.seed(1) # Фиксируем сид для воспроизводимости
+    random_array = np.random.randint(1, 101, size=(1000))  # Загадываем список чисел
 
     for number in random_array:
         count_ls.append(game_core_v3(number))
 
     score = int(np.mean(count_ls))
-    print(f"Ваш алгоритм угадывает число в среднем за:{score} попыток")
-    return score   
+    print(f"Ваш алгоритм угадывает число в среднем за: {score} попытки")
+
+#Run benchmarking for game_core_v3
+if __name__ == '__main__':
+    print('Run benchmarking for game_core_v3: ', end='')
+    score_game_v2(game_core_v3)   

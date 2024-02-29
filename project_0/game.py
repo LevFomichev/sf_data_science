@@ -1,3 +1,4 @@
+# Импортируем необходимую нам библиотеку
 import numpy as np
 
 def random_predict(number: int = 1) -> int:
@@ -10,13 +11,13 @@ def random_predict(number: int = 1) -> int:
     Returns:
         int: Число попыток
     """
-    count = 0
+    count = 0 # Число попыток
 
     while True:
         count += 1
-        predict_number = np.random.randint(1, 101)  # предполагаемое число
+        predict_number = np.random.randint(1, 101) # Предполагаемое число
         if number == predict_number:
-            break  # выход из цикла если угадали
+            break # Выход из цикла если угадали
     
     return count
 
@@ -31,8 +32,9 @@ def game_core_v2(number: int = 1) -> int:
     Returns:
         int: Число попыток
     """
-    count = 0
-    predict = np.random.randint(1, 101)
+    count = 0 # Число попыток
+    
+    predict = np.random.randint(1, 101) # Предполагаемое число
     
     while number != predict:
         count += 1
@@ -52,9 +54,9 @@ def score_game(random_predict) -> int:
     Returns:
         int: среднее количество попыток
     """
-    count_ls = []
-    #np.random.seed(1)  # фиксируем сид для воспроизводимости
-    random_array = np.random.randint(1, 101, size=(10000))  # загадали список чисел
+    count_ls = [] # Создаём список, состоящий из будущего количества попыток отгадок 
+    np.random.seed(1) # Фиксируем сид для воспроизводимости
+    random_array = np.random.randint(1, 101, size=(10000)) # Загадываем список чисел
 
     for number in random_array:
         count_ls.append(random_predict(number))
@@ -63,8 +65,10 @@ def score_game(random_predict) -> int:
     print(f"Ваш алгоритм угадывает число в среднем за: {score} попытки")
     
 #Run benchmarking to score effectiveness of all algorithms
-print('Run benchmarking for random_predict: ', end='')
-score_game(random_predict)
+if __name__ == '__main__':
+    print('Run benchmarking for random_predict: ', end='')
+    score_game(random_predict)
 
-print('Run benchmarking for game_core_v2: ', end='')
-score_game(game_core_v2)
+if __name__ == '__main__':
+    print('Run benchmarking for game_core_v2: ', end='')
+    score_game(game_core_v2)
