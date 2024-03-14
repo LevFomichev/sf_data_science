@@ -1,4 +1,4 @@
-# My Data Science projects
+# My Data Science projects and notes
 From the [Skillfactory Data Science course](https://skillfactory.ru/data-scientist-pro-mgu).
 
 ## Проекты
